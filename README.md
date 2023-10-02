@@ -14,9 +14,9 @@ services:
     container_name: example-container
     labels:
       - traefik.enable=true
-      - traefik.port=8080 # Container port for proxy
-      - traefik.http.routers.zabbix.rule=Host(`example.com`)
-      - traefik.http.routers.zabbix.tls=true
+      - traefik.http.services.example.loadbalancer.server.port=8080
+      - traefik.http.routers.example.rule=Host(`example.com`)
+      - traefik.http.routers.example.tls=true
     networks:
       - default
       - reverse-proxy-network
